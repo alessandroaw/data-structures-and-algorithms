@@ -1,4 +1,6 @@
 # array and hashing
+# TC: O(1)
+# SC: O(n)
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         # use set to store unique element

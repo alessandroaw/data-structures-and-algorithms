@@ -1,3 +1,6 @@
+# array and hashing
+# TC: O(n)
+# SC: O(n)
 class Solution(object):
     def twoSum(self, nums, target):
         """

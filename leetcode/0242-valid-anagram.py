@@ -1,4 +1,6 @@
 # array and hashing
+# TC: O(n)
+# SC: O(n)
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         # Idea:
