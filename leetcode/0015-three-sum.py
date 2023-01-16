@@ -1,5 +1,5 @@
 # two pointer
-# TC: O(n)
+# TC: O(n^2)
 # SC: O(n)
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
