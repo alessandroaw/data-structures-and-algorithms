@@ -1,29 +1,26 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums) - 1
 
-        inflection_point = 0
+        t = target
+        while l <= r:
+            m = (l + r) // 2
+            cm = nums[m]
+            cl = nums[l]
+            cr = nums[r]
 
-        prev = nums[0]
+            if cm == t:
+                return m
 
-        for i in range(len(nums)):
-            if nums[i] < prev:
-                inflection_point = i
-                break
-
-        search_nums = [*nums[inflection_point:], *nums[:inflection_point]]
-
-        left = 0
-        right = len(search_nums) - 1
-
-        while left <= right:
-            mid = (left + right) // 2
-            current = search_nums[mid]
-
-            if target < current:
-                right = mid - 1
-            elif target > current:
-                left = mid + 1
+            if cl <= cm:
+                if t < cl or t > cm:
+                    l = m + 1
+                else:
+                    r = m - 1
             else:
-                return (mid + inflection_point) % len(nums)
+                if t > cr or t < cm:
+                    r = m - 1
+                else:
+                    l = m + 1
 
         return -1
