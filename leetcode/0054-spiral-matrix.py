@@ -1,6 +1,5 @@
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        visited = set()
 
         # right, down, left, up
         step = [(0, 1), (1, 0), (0, -1), (-1, 0)]
@@ -15,13 +14,14 @@ class Solution:
         direction = 0
         row, col = 0, 0
         res = []
-        while not isEdge(row, col) and not (row, col) in visited:
+        while not isEdge(row, col) and matrix[row][col] != -999:
             res.append(matrix[row][col])
-            visited.add((row, col))
+            matrix[row][col] = -999
 
             (dr, dc) = step[direction % 4]
 
-            if isEdge(row + dr, col + dc) or (row + dr, col + dc) in visited:
+            if isEdge(row + dr, col + dc) or matrix[row + dr][col + dc] == -999:
+                matrix[row][col] = -999
                 direction += 1
                 (dr, dc) = step[direction % 4]
 
