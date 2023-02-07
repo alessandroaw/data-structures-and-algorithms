@@ -4,12 +4,10 @@ class Solution:
             return x
 
         res = 1
-        prev = res
-        n = 0
-        for i in range(100):
-            n = i
-            res = res - ((res * res - x)/(2 * res))
-            if floor(prev) == floor(res):
-                break
+        prev = 0
+
+        while floor(res) != floor(prev):
             prev = res
+            res = res - ((res * res - x)/(2 * res))
+
         return floor(res)
